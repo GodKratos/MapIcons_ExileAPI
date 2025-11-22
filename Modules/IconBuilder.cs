@@ -581,7 +581,7 @@ public sealed class IconBuilder : PluginModule {
         if (entity.Type == EntityType.Terrain) return null; 
 
         // Ingame Icon
-        if (entity.HasComponent<MinimapIcon>()) return CreateIcon_Ingame(entity);
+        if (entity.HasComponent<MinimapIcon>() && !entity.GetComponent<MinimapIcon>().IsHide) return CreateIcon_Ingame(entity);
         // Delirium Icons
         if (entity.Path.StartsWith("Metadata/Monsters/LeagueAffliction/DoodadDaemons", StringComparison.Ordinal)) return CreateIcon_Delirium(entity);
         // Monster Icon
